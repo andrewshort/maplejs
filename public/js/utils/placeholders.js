@@ -13,7 +13,7 @@ var placeholders = function (template, data) {
 	if (['string', 'number'].indexOf(typeof template) === -1) throw 'PlaceholdersJS: please provide a valid template';
 
 	// If no data, return template as-is
-	if (!data) return template;
+	if (!data) return '';
 
 	// Replace our curly braces with data
 	template = template.replace(/\{\{([^}]+)\}\}/g, function (match) {
@@ -33,7 +33,7 @@ var placeholders = function (template, data) {
 
 				// Make sure the item exists
 				if (!temp[item]) {
-					temp = '{{' + match + '}}';
+					temp = '';
 					return;
 				}
 
@@ -47,7 +47,7 @@ var placeholders = function (template, data) {
 
 		// Otherwise, return the item
 		else {
-			if (!data.hasOwnProperty(match)) return '{{' + match + '}}';
+			if (!data.hasOwnProperty(match)) return '';
 			return data[match];
 		}
 

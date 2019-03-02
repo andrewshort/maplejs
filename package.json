@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "express": "^4.16.4",
-        "jshint": "^2.10.1"
+        "jshint": "^2.10.1",
+        "request": "^2.88.0"
     }
 }
